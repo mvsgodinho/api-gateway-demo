@@ -17,22 +17,16 @@ Based on this post: [Lightweight Tests for your Nginx API Gateway](http://undert
 ├── nginx (Gateway configuration)
 │   ├── conf.d
 │   │   └── api-gateway.conf (Location directives)
-│   ├── dns.conf (DNS resolver)
 │   └── nginx.conf (Main config)
 └── tests
-    ├── hosts
-    │   └── hosts (DNS resolutions for internal services)
     ├── nginx
     │   ├── conf.d
     │   │   └── services.conf (Internal services mock)
-    │   └── dns.conf (Test DNS resolver)
 ~~~
 
-Setting up the test docker container required 4 extra steps on top of the target Nginx setup:
-* Install and run `dnsmasq` (Step 1)
-* Override `/etc/hosts` file with DNS names for our internal services (Step 2)
-* Override production DNS resolver and inject virtual server configuration mocking internal services (Step 3)
-* Include self signed ssl certificate used in internal services mock (Step 4)
+Setting up the test docker container required extra steps on top of the target Nginx setup:
+* Use Docker DNS resolver
+* Include self signed ssl certificate used in internal services mock
 
 
 # Run tests

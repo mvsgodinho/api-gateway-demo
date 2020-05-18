@@ -5,9 +5,14 @@ services:
     build:
       context: .
       dockerfile: Dockerfile.tests
-    cap_add:
-      - NET_ADMIN
     ports:
-     - "81:80"
+      - "81:80"
+      - "443:443"
+    networks:
+      default:
+        aliases: 
+          - service1
+          - service2
+          - service3
     volumes: 
-     - ${PWD}/nginx/conf.d/api-gateway.conf:/etc/nginx/conf.d/api-gateway.conf
+      - ${PWD}/nginx/conf.d/api-gateway.conf:/etc/nginx/conf.d/api-gateway.conf
