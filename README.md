@@ -16,12 +16,12 @@ Based on this post: [Lightweight Tests for your Nginx API Gateway](http://undert
 ~~~bash
 ├── nginx (Gateway configuration)
 │   ├── conf.d
-│   │   └── api-gateway.conf (Location directives)
-│   └── nginx.conf (Main config)
+        └── api-gateway.conf (Location directives)
+        └── dns.conf (Docker DNS)
 └── tests
     ├── nginx
-    │   ├── conf.d
-    │   │   └── services.conf (Internal services mock)
+        ├── conf.d
+            └── services.conf (Internal services mock)
 ~~~
 
 Setting up the test docker container required extra steps on top of the target Nginx setup:

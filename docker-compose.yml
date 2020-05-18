@@ -1,18 +1,20 @@
 version: '3'
-
 services:
   web:
     build:
       context: .
-      dockerfile: Dockerfile.tests
     ports:
       - "81:80"
-      - "443:443"
+    volumes: 
+      - ${PWD}/nginx/conf.d/api-gateway.conf:/etc/nginx/conf.d/api-gateway.conf
+  mock:
+    build:
+      context: ./tests
+    expose:
+      - "443"
     networks:
       default:
         aliases: 
           - service1
           - service2
           - service3
-    volumes: 
-      - ${PWD}/nginx/conf.d/api-gateway.conf:/etc/nginx/conf.d/api-gateway.conf
