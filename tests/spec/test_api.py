@@ -1,10 +1,11 @@
 #!/usr/bin/env python
 import sys
+import os
 import pytest
 import requests
 import json
 
-URL = "http://localhost:81"   
+URL = os.getenv('WEB_URL')   
 
 def request_and_assert_status(method, url, expected = 200, headers = {}, payload = {}):
     response = requests.request(method, URL + url, headers=headers, data = payload)

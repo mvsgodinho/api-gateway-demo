@@ -15,12 +15,12 @@ Based on this post: [Lightweight Tests for your Nginx API Gateway](http://undert
 # Project structure explained
 ~~~bash
 ├── nginx (Gateway configuration)
-│   ├── conf.d
-        └── api-gateway.conf (Location directives)
-        └── dns.conf (Docker DNS)
+│   └── conf.d
+|       └── api-gateway.conf (Location directives)
+|       └── dns.conf (Docker DNS)
 └── tests
-    ├── nginx
-        ├── conf.d
+    └── nginx
+        └── conf.d
             └── services.conf (Internal services mock)
 ~~~
 
